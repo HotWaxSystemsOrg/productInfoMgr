@@ -1,0 +1,101 @@
+[
+  {"_dataType": "demo"},
+  {
+    "_entity": "product.Product",
+    "productId": "PROD10000",
+    "productName": "Smartphone",
+    "productTypeEnumId": "FINISHED_EXCELLENT",
+    "isVirtual": "Y",
+    "isVariant": "N",
+    "fromDate": "2023-09-01"
+  },
+  {
+    "_entity": "product.Product",
+    "productId": "PROD10001",
+    "productName": "Smartphone-128GB",
+    "productTypeEnumId": "FINISHED_GOOD",
+    "isVirtual": "N",
+    "isVariant": "Y"
+  },
+  {
+    "_entity": "product.Product",
+    "productId": "PROD10002",
+    "productName": "Smartphone-256GB",
+    "productTypeEnumId": "FINISHED_EXCELLENT",
+    "isVirtual": "N",
+    "isVariant": "Y"
+  },
+  {
+    "_entity": "product.Product",
+    "productId": "PROD20000",
+    "productName": "Laptop",
+    "productTypeEnumId": "FINISHED_OKAY",
+    "isVirtual": "Y",
+    "isVariant": "N",
+    "fromDate": "2023-09-01"
+  },
+  {
+    "_entity": "product.Product",
+    "productId": "PROD20001",
+    "productName": "Laptop-BLACK",
+    "productTypeEnumId": "FINISHED_GOOD",
+    "isVirtual": "N",
+    "isVariant": "Y"
+  },
+  {
+    "_entity": "product.Product",
+    "productId": "PROD20002",
+    "productName": "Laptop-Phone-Promotional-Package",
+    "productTypeEnumId": "FINISHED_EXCELLENT",
+    "fromDate": "2023-09-01"
+  },
+  {
+    "_entity": "product.Product",
+    "productId": "PROD20003",
+    "productName": "Smartphone",
+    "productTypeEnumId": "FINISHED_GOOD",
+    "isVirtual": "Y",
+    "isVariant": "N"
+  },
+  {
+    "_entity": "product.Product",
+    "productId": "PROD20004",
+    "productName": "Smartphone-128GB",
+    "productTypeEnumId": "FINISHED_OKAY",
+    "isVirtual": "N",
+    "isVariant": "Y"
+  },
+  {
+    "_entity": "product.Product",
+    "productId": "PROD20005",
+    "productName": "Smartphone-256GB",
+    "productTypeEnumId": "FINISHED_GOOD",
+    "isVirtual": "N",
+    "isVariant": "Y"
+  },
+  {
+    "_entity": "product.Product",
+    "productId": "PROD20005",
+    "productName": "Laptop",
+    "productTypeEnumId": "FINISHED_EXCELLENT",
+    "isVirtual": "Y",
+    "isVariant": "N",
+    "fromDate": "2023-09-01"
+  },
+  {
+    "_entity": "product.Product",
+    "productId": "PROD20006",
+    "productName": "Laptop-BLACK",
+    "productTypeEnumId": "FINISHED_EXCELLENT",
+    "isVirtual": "N",
+    "isVariant": "Y",
+    "fromDate": "2023-09-01"
+  },
+  {
+    "_entity": "product.Product",
+    "productId": "PROD20007",
+    "productName": "Laptop-Phone-Promotional-Package",
+    "productTypeEnumId": "FINISHED_OKAY",
+    "fromDate": "2023-09-01"
+  }
+]
