@@ -174,7 +174,7 @@
             <box-body>
             <container-dialog id="PRDA" button-text="product Association">
                 <form-single name="ProductAssocForm" transition="createProductAssocForm">
-                    <auto-fields-entity entity-name="ProductAssoc" include="nonpk" field-type="edit"/>
+                    <auto-fields-entity entity-name="ProductAssoc" field-type="edit"/>
                     <field name="submitButton">
                         <default-field title="Create">
                             <submit/>
@@ -187,7 +187,7 @@
 
         <!--    Product Feature    -->
                 <container-dialog id="PRDF" button-text="Product Feature">
-                    <form-single name="ProductFeatureForm" transition="createProductFeatureInfo">
+                    <form-single name="ProductFeatureForm" transition="createProductFeatureForm">
                         <auto-fields-entity entity-name="ProductFeature" field-type="edit"/>
                         <field name="submitButton">
                             <default-field title="Create"><submit/></default-field>

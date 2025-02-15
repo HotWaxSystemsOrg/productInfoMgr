@@ -3,71 +3,41 @@
         xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-3.xsd"
         require-authentication="anonymous-all">
 
+
     <!--    ==================================================================     -->
 
-    <transition name="findProductForm">
-        <service-call name="find#product.Product"/>
-        <default-response url="." />
-    </transition>
-    <!--    ==================================================================    -->
+    <actions>
+        <service-call name="ProductServices.fetch#Product"
+                      in-map="[productId:productId]"
+                      out-map="context" />
 
-    <transition name="findProductContentForm">
-        <service-call name="find#product.ProductContent"/>
-        <default-response url="." />
-    </transition>
+        <service-call name="ProductServices.fetch#ProductContent"
+                      in-map="[productId:productId]"
+                      out-map="context" />
 
-    <!--    ==================================================================    -->
+        <service-call name="ProductServices.fetch#ProductDimension"
+                      in-map="[productId:productId]"
+                      out-map="context" />
 
-    <transition name="findProductPriceForm">
-        <service-call name="find#product.ProductPrice"/>
-        <default-response url="." />
-    </transition>
+        <service-call name="ProductServices.fetch#ProductPrice"
+                      in-map="[productId:productId]"
+                      out-map="context" />
 
-    <!--    ==================================================================    -->
+        <service-call name="ProductServices.fetch#ProductAssoc"
+                      in-map="[productId:productId]"
+                      out-map="context" />
 
-    <transition name="findProductDimensionForm">
-        <service-call name="find#product.ProductDimension"/>
-        <default-response url="." />
-    </transition>
+        <service-call name="ProductServices.fetch#ProductFeatureAppl"
+                      in-map="[productId:productId]"
+                      out-map="context" />
 
-    <!--    ==================================================================    -->
+        <service-call name="ProductServices.fetch#ProductCategoryMember"
+                      in-map="[productId:productId]"
+                      out-map="context" />
 
-    <transition name="findProductAssocForm">
-        <service-call name="find#product.ProductAssoc"/>
-        <default-response url="."/>
-    </transition>
-
-    <!--    ==================================================================    -->
-
-    <transition name="findProductFeatureForm">
-        <service-call name="find#product.ProductFeature"/>
-        <default-response url="."/>
-    </transition>
-
-    <!--    ==================================================================    -->
-
-    <transition name="findProductFeatureApplForm">
-        <service-call name="find#product.ProductFeatureAppl"/>
-        <default-response url="."/>
-    </transition>
-
-    <!--    ==================================================================    -->
-
-    <transition name="findProductCategoryMemberForm">
-        <service-call name="find#product.ProductCategoryMember"/>
-        <default-response url="."/>
-    </transition>
-
-    <!--    ==================================================================    -->
-
-    <transition name="findProductCategoryForm">
-        <service-call name="find#product.ProductCategory"/>
-        <default-response url="."/>
-    </transition>
-
+    </actions>
 
     <!--    =================================================================================     -->
-
 
     <widgets>
         <container-box>
@@ -83,21 +53,48 @@
             </box-header>
             <box-body>
                 <container-dialog id="PRD" button-text="Product">
-                    <form-single name="ProductForm" transition="findProductForm" >
-                        <auto-fields-entity entity-name="Product"  field-type="find-display" include="nonpk" />
-                        <field name="submitButton"><default-field title="Create"><submit/></default-field></field>
+                    <form-single name="Product" transition=".">
+                        <field name="productId">
+                            <default-field><text-line/></default-field>
+                        </field>
+                        <field name="submitButton">
+                            <default-field title="Find"><submit/></default-field>
+                        </field>
                     </form-single>
                 </container-dialog>
-
+                <container-box>
+                    <box-header><text>Product List</text></box-header>
+                    <box-body>
+                        <form-list name="ProductList" list="productList">
+                            <field name="productId">
+                                <default-field><display/></default-field>
+                            </field>
+                        </form-list>
+                    </box-body>
+                </container-box>
                 <!--    ==================================================================    -->
 
                 <!--    Product Content    -->
                 <container-dialog id="PRDC" button-text="Product Content">
-                    <form-single name="ProductContentForm" transition="findProductContentForm" >
-                        <auto-fields-entity entity-name="ProductContent"  field-type="find-display"  />
-                        <field name="submitButton"><default-field title="Create"><submit/></default-field></field>
+                    <form-single name="ProductContent" transition=".">
+                        <field name="productId">
+                            <default-field><text-line/></default-field>
+                        </field>
+                        <field name="submitButton">
+                            <default-field title="Find"><submit/></default-field>
+                        </field>
                     </form-single>
                 </container-dialog>
+                <container-box>
+                    <box-header><text>Product Content List</text></box-header>
+                    <box-body>
+                        <form-list name="ProductContentList" list="productContentList">
+                            <field name="productId">
+                                <default-field><display/></default-field>
+                            </field>
+                        </form-list>
+                    </box-body>
+                </container-box>
             </box-body>
         </container-box>
 
@@ -110,21 +107,49 @@
             </box-header>
             <box-body>
                 <container-dialog id="PRDD" button-text="Product Dimension">
-                    <form-single name="ProductDimensionForm" transition="findProductDimensionForm" >
-                        <auto-fields-entity entity-name="ProductDimension"  field-type="find-display" />
-                        <field name="submitButton"><default-field title="Create"><submit/></default-field></field>
+                    <form-single name="ProductDimension" transition=".">
+                        <field name="productId">
+                            <default-field><text-line/></default-field>
+                        </field>
+                        <field name="submitButton">
+                            <default-field title="Find"><submit/></default-field>
+                        </field>
                     </form-single>
                 </container-dialog>
+                <container-box>
+                    <box-header><text>Product Dimension List</text></box-header>
+                    <box-body>
+                        <form-list name="ProductDimensionList" list="productDimensionList">
+                            <field name="productId">
+                                <default-field><display/></default-field>
+                            </field>
+                        </form-list>
+                    </box-body>
+                </container-box>
 
                 <!--    ==================================================================    -->
 
                 <!--    Product Price    -->
                 <container-dialog id="PRDP" button-text="Product Price">
-                    <form-single name="ProductPriceForm" transition="findProductPriceForm" >
-                        <auto-fields-entity entity-name="ProductPrice"  field-type="find-display" />
-                        <field name="submitButton"><default-field title="Create"><submit/></default-field></field>
+                    <form-single name="ProductPrice" transition=".">
+                        <field name="productId">
+                            <default-field><text-line/></default-field>
+                        </field>
+                        <field name="submitButton">
+                            <default-field title="Find"><submit/></default-field>
+                        </field>
                     </form-single>
                 </container-dialog>
+                <container-box>
+                    <box-header><text>Product Price List</text></box-header>
+                    <box-body>
+                        <form-list name="ProductPriceList" list="productPriceList">
+                            <field name="productId">
+                                <default-field><display/></default-field>
+                            </field>
+                        </form-list>
+                    </box-body>
+                </container-box>
             </box-body>
         </container-box>
 
@@ -134,33 +159,29 @@
         <!--    Product Category    -->
         <container-box>
             <box-header>
-                <label type="h3" text="Product Category and Category Member"/>
+                <label type="h3" text="Product Category Member"/>
             </box-header>
             <box-body>
-                <container-dialog id="PRDCA" button-text="Product Category">
-                    <form-single name="ProductCategoryForm" transition="findProductCategoryForm">
-                        <auto-fields-entity entity-name="ProductCategory" field-type="find-display"/>
-                        <field name="submitButton">
-                            <default-field title="Create">
-                                <submit/>
-                            </default-field>
-                        </field>
-                    </form-single>
-                </container-dialog>
-
-                <!--    ==================================================================    -->
-
-                <!--    Product Category Member    -->
                 <container-dialog id="PRDCM" button-text="Product Category Member">
-                    <form-single name="ProductCategoryMemberForm" transition="findProductCategoryMemberForm">
-                        <auto-fields-entity entity-name="ProductCategoryMember" field-type="find-display"/>
+                    <form-single name="ProductCategoryMember" transition=".">
+                        <field name="productId">
+                            <default-field><text-line/></default-field>
+                        </field>
                         <field name="submitButton">
-                            <default-field title="Create">
-                                <submit/>
-                            </default-field>
+                            <default-field title="Find"><submit/></default-field>
                         </field>
                     </form-single>
                 </container-dialog>
+                <container-box>
+                    <box-header><text>Product Price List</text></box-header>
+                    <box-body>
+                        <form-list name="ProductCategoryMemberList" list="productCategoryMemberList">
+                            <field name="productId">
+                                <default-field><display/></default-field>
+                            </field>
+                        </form-list>
+                    </box-body>
+                </container-box>
             </box-body>
         </container-box>
 
@@ -169,45 +190,53 @@
         <!--    Product Association    -->
         <container-box>
             <box-header>
-                <label type="h3" text="Product Association, Feature and Feature Application"/>
+                <label type="h3" text="Product Association and Feature Application"/>
             </box-header>
             <box-body>
-                <container-dialog id="PRDA" button-text="product Association">
-                    <form-single name="ProductAssocForm" transition="findProductAssocForm">
-                        <auto-fields-entity entity-name="ProductAssoc" include="nonpk" field-type="find-display"/>
+                <container-dialog id="PRDA" button-text="Product Association">
+                    <form-single name="ProductAssoc" transition=".">
+                        <field name="productId">
+                            <default-field><text-line/></default-field>
+                        </field>
                         <field name="submitButton">
-                            <default-field title="Create">
-                                <submit/>
-                            </default-field>
+                            <default-field title="Find"><submit/></default-field>
                         </field>
                     </form-single>
                 </container-dialog>
-
-                <!--    ==================================================================    -->
-
-                <!--    Product Feature    -->
-                <container-dialog id="PRDF" button-text="Product Feature">
-                    <form-single name="ProductFeatureForm" transition="findProductFeatureInfo">
-                        <auto-fields-entity entity-name="ProductFeature" field-type="find-display"/>
-                        <field name="submitButton">
-                            <default-field title="Create"><submit/></default-field>
-                        </field>
-                    </form-single>
-                </container-dialog>
+                <container-box>
+                    <box-header><text>Product Price List</text></box-header>
+                    <box-body>
+                        <form-list name="ProductAssocList" list="productAssocList">
+                            <field name="productId">
+                                <default-field><display/></default-field>
+                            </field>
+                        </form-list>
+                    </box-body>
+                </container-box>
 
                 <!--    ==================================================================    -->
 
                 <!--    Product Feature Application    -->
                 <container-dialog id="PRDFA" button-text="Product Feature Application">
-                    <form-single name="ProductFeatureApplForm" transition="findProductFeatureApplForm">
-                        <auto-fields-entity entity-name="ProductFeatureAppl" field-type="find-display" />
+                    <form-single name="ProductFeatureAppl" transition=".">
+                        <field name="productId">
+                            <default-field><text-line/></default-field>
+                        </field>
                         <field name="submitButton">
-                            <default-field title="Create">
-                                <submit/>
-                            </default-field>
+                            <default-field title="Find"><submit/></default-field>
                         </field>
                     </form-single>
                 </container-dialog>
+                <container-box>
+                    <box-header><text>Product Price List</text></box-header>
+                    <box-body>
+                        <form-list name="ProductFeatureApplList" list="productFeatureApplList">
+                            <field name="productId">
+                                <default-field><display/></default-field>
+                            </field>
+                        </form-list>
+                    </box-body>
+                </container-box>
             </box-body>
         </container-box>
 

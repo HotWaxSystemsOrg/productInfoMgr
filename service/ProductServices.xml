@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-3.xsd">
+
+    <!--    ==================================================================     -->
+
+    <service verb="fetch" noun="Product">
+        <in-parameters>
+            <parameter name="productId" />
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productList"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="Product" list="productList">
+                <econdition field-name="productId" ignore-if-empty="true"/>
+            </entity-find>
+        </actions>
+    </service>
+
+    <!--    ==================================================================     -->
+
+    <service verb="fetch" noun="ProductContent">
+        <in-parameters>
+            <parameter name="productId" />
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productContentList"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="ProductContent" list="productContentList">
+                <econdition field-name="productId" ignore-if-empty="true"/>
+            </entity-find>
+        </actions>
+    </service>
+
+    <!--    ==================================================================     -->
+
+    <service verb="fetch" noun="ProductDimension">
+        <in-parameters>
+            <parameter name="productId" />
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productDimensionList"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="ProductDimension" list="productDimensionList">
+                <econdition field-name="productId" ignore-if-empty="true"/>
+            </entity-find>
+        </actions>
+    </service>
+
+    <!--    ==================================================================     -->
+
+    <service verb="fetch" noun="ProductPrice">
+        <in-parameters>
+            <parameter name="productId" />
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productPriceList"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="ProductPrice" list="productPriceList">
+                <econdition field-name="productId" ignore-if-empty="true"/>
+            </entity-find>
+        </actions>
+    </service>
+
+    <!--    ==================================================================     -->
+
+    <service verb="fetch" noun="ProductAssoc">
+        <in-parameters>
+            <parameter name="productId" />
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productAssocList"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="ProductAssoc" list="productCategoryList">
+                <econdition field-name="productId" ignore-if-empty="true"/>
+            </entity-find>
+        </actions>
+    </service>
+
+    <!--    ==================================================================     -->
+
+    <service verb="fetch" noun="ProductFeatureAppl">
+        <in-parameters>
+            <parameter name="productId" />
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productFeatureApplList"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="ProductFeatureAppl" list="productFeatureApplList">
+                <econdition field-name="productId" ignore-if-empty="true"/>
+            </entity-find>
+        </actions>
+    </service>
+
+    <!--    ==================================================================     -->
+
+    <service verb="fetch" noun="ProductCategoryMember">
+        <in-parameters>
+            <parameter name="productId" />
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productCategoryMemberList"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="ProductCategoryMember" list="productCategoryMemberList">
+                <econdition field-name="productId" ignore-if-empty="true"/>
+            </entity-find>
+        </actions>
+    </service>
+
+    <!--    ==================================================================     -->
+
+</services>
